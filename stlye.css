@@ -1,0 +1,80 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #daacac;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    color: darkblue;
+}
+
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin: 50px auto;
+    height: 20rem;
+    width: 18rem;
+    background: #999;
+}
+
+tr {
+    border: black solid 1px;
+}
+
+.cell {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    transition: 0.5s;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+td:hover {
+    background-color: lightsalmon;
+}
+
+.game-hints .leves-btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 15px;
+}
+.x1{
+    color: red;
+}
+.x2{
+    color: blue;
+}
+.x3{
+    color: lightgreen
+}
+.x4{
+    color: purple;
+}
+.x5{
+    color: brown;
+}
+/* .leves-btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+} */
+.marked {
+    background-color: lightgrey;
+}
+
+.mined {
+    background-color: red;
+}
+
+footer {
+    background-color: #ba4c7c;
+    margin: 80px 50px;
+}

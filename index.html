@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stlye.css">
+    <title>Sahar Valensi</title>
+</head>
+
+<body onload="onInit()">
+    <h1>Welcome to MineSweeper</h1>
+    <h2>Mines left : <span>0</span></h2>
+    <div class="game-hints">
+        <p class="lives"> lives : <span>❤️❤️❤️</span></p>
+        <p class="hints"> hints : <span>🔎🔎🔎</span></p>
+        <p class="mega-hint"> mega hint : <span>🪄</span></p>
+    </div>
+    <div class="timer">Timer: <span>0</span></div>
+    <div class="game-container">
+    </div>
+
+    <button class="reset-btn" onclick="onInit()">restart</button>
+    <div class="leves-btns">
+        <button onclick="setLevel(4,2)">easy</button>
+        <button onclick="setLevel(8,14)">medium</button>
+        <button onclick="setLevel(12,32)">hard</button>
+        <button>creative</button>
+    </div>
+
+    <footer>coffe rights 2025 Sahar Valensi</footer>
+
+    <script src="utils.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
