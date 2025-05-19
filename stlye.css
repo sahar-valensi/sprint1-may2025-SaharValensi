@@ -16,8 +16,6 @@ table {
     border: 1px solid black;
     border-collapse: collapse;
     margin: 50px auto;
-    height: 20rem;
-    width: 18rem;
     background: #999;
 }
 
@@ -34,7 +32,9 @@ tr {
     cursor: pointer;
 }
 
-td:hover {
+/* td:hover {
+} */
+.cell:not(.shown):hover {
     background-color: lightsalmon;
 }
 
@@ -66,7 +66,7 @@ td:hover {
     align-items: center;
     gap: 1rem;
 } */
-.marked {
+.shown {
     background-color: lightgrey;
 }
 

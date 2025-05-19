@@ -10,10 +10,10 @@
 
 <body onload="onInit()">
     <h1>Welcome to MineSweeper</h1>
-    <h2>Mines left : <span>0</span></h2>
+    <h2>Mines left : <span class="mines-left">0</span></h2>
     <div class="game-hints">
         <p class="lives"> lives : <span>❤️❤️❤️</span></p>
-        <p class="hints"> hints : <span>🔎🔎🔎</span></p>
+        <p class="game-hints"> hints : <span>🔎🔎🔎</span></p>
         <p class="mega-hint"> mega hint : <span>🪄</span></p>
     </div>
     <div class="timer">Timer: <span>0</span></div>
@@ -22,9 +22,9 @@
 
     <button class="reset-btn" onclick="onInit()">restart</button>
     <div class="leves-btns">
-        <button onclick="setLevel(4,2)">easy</button>
-        <button onclick="setLevel(8,14)">medium</button>
-        <button onclick="setLevel(12,32)">hard</button>
+        <button onclick="resizeBoard('easy')">easy</button>
+        <button onclick="resizeBoard('medium')">medium</button>
+        <button onclick="resizeBoard('hard')">hard</button>
         <button>creative</button>
     </div>
 
