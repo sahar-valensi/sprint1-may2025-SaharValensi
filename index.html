@@ -21,11 +21,26 @@
     </div>
 
     <button class="reset-btn" onclick="onInit()">restart</button>
+
     <div class="leves-btns">
         <button onclick="resizeBoard('easy')">easy</button>
         <button onclick="resizeBoard('medium')">medium</button>
         <button onclick="resizeBoard('hard')">hard</button>
         <button>creative</button>
+    </div>
+
+    <div id="winModal" class="modal" >
+        <div class="modal-content">
+            <!-- <span class="close" onclick="closeModal('winModal')">&times;</span> -->
+            <h2>YOU WIN!</h2>
+        </div>
+    </div>
+    
+    <div id="loseModal" class="modal" >
+        <div class="modal-content">
+            <!-- <span class="close" onclick="closeModal('loseModal')">&times;</span> -->
+            <h2>YOU LOSE!</h2>
+        </div>
     </div>
 
     <footer>coffe rights 2025 Sahar Valensi</footer>
