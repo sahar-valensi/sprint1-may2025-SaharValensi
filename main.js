@@ -2,24 +2,26 @@ const MINE = '💣'
 const FLAG = '🚩'
 const EMPTY = ''
 const LIVE = '❤️'
+
 ///
 var gBoard = []
 var gLevel = {
     SIZE: 4,
     MINES: 2
 }
-
 var gGame = {
     isOn: false,
     shownCount: 0,
     markedCount: 0,
     secsPassed: 0,
     lives: 3,
+    hints: 3,
     isGameOver: false,
 }
 
 var elMinesLeft = document.querySelector(`.mines-left`)
-var intervalId;
+var intervalId
+var gHintActive = false
 
 function onInit() {
     resetGame()
@@ -37,9 +39,11 @@ function resetGame() {
         shownCount: 0,
         markedCount: 0,
         secsPassed: 0,
-        lives: 3
+        lives: 3,
+        hints: 3
     }
     updateLivesUI()
+    updateHintsUI()
     clearInterval(intervalId);
 }
 
@@ -88,7 +92,19 @@ function renderBoard() {
     // const elH2Span = document.querySelector('.h2 span')
     // elH2Span.innerHTML = gLevel.MINES
 }
-
+function updateHintsUI() {
+    const elHints = document.querySelector('.game-hints span');
+    var hintIcons = '';
+    for (var i = 0; i < gGame.hints; i++){
+         hintIcons += '🔎'
+    }
+    elHints.innerHTML = hintIcons;
+}
+function onHintClicked() {
+    if (gGame.hints > 0 && !gHintActive) {
+       gHintActive = true;
+    }
+}
 function resizeBoard(size) {
     // var sizeMap = {
     //     'easy': ()=> {
@@ -159,6 +175,24 @@ function placeMines(board) {
 // //////////לסמן את הדגל עם הפונקציה,להוסיף עיצוב למספר שכנים כל אחד בצבע אחר,להגדיר את הלחיצה על הכפתור כקלאסים של חשוף ומכוסה,
 function onCellClicked(elCell, i, j) {
     const cell = gBoard[i][j]
+    // if (gHintActive) {
+    //     const cell = gBoard[i][j];
+    //     if (cell.isMine) return; 
+
+    //     const originalContent = elCell.innerHTML
+    //     elCell.classList.add('hint')            
+    //     elCell.innerHTML = setMinesNegsCount(gBoard, i, j) 
+
+    //     setTimeout(() => {                       
+    //         elCell.classList.remove('hint')
+    //         elCell.innerHTML = originalContent
+    //     }, 3000)
+
+    //     gGame.hints--                        
+    //     updateHintsUI()                       
+    //     gHintActive = false                 
+    //     return
+    // }
     if (cell.isShown || cell.isMarked || gGame.isGameOver) return
 
     if (!gGame.isOn) {
@@ -169,13 +203,13 @@ function onCellClicked(elCell, i, j) {
     cell.isShown = true
 
     if (cell.isMine) {
-     
+
         elCell.innerHTML = MINE
         elCell.classList.add("mined")
         if (gGame.lives > 1) {
             gGame.lives--
             updateLivesUI()
-        } else { 
+        } else {
             gGame.lives = 0
             updateLivesUI()
             onGameOver()
@@ -260,7 +294,7 @@ function setLevel(boardWidth, mines) {
 }
 function showModal(modalId) {
     const modal = document.querySelector(`#${modalId}`);
-    if (modal) {  
+    if (modal) {
         modal.style.display = 'block';
     }
 }
@@ -277,8 +311,8 @@ function startTimer() {
 function updateLivesUI() {
     const elLives = document.querySelector('.lives span');
     var hearts = '';
-    for (var i = 0; i < gGame.lives; i++){
-         hearts += '❤️';
+    for (var i = 0; i < gGame.lives; i++) {
+        hearts += '❤️';
     }
     elLives.innerHTML = hearts;
 }
@@ -289,7 +323,7 @@ function checkVictory() {
     for (var i = 0; i < gBoard.length; i++) {
         for (var j = 0; j < gBoard[i].length; j++) {
             var cell = gBoard[i][j]
-            if (!cell.isMine) { 
+            if (!cell.isMine) {
                 safeCellsCount++
                 if (cell.isShown) safeShownCount++
             }

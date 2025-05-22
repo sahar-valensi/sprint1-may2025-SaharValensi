@@ -46,19 +46,22 @@ tr {
     padding: 15px;
 }
 .x1{
-    color: red;
+    color: rgb(198, 14, 14);
 }
 .x2{
-    color: blue;
+    color: rgb(14, 14, 122);
 }
 .x3{
     color: rgb(0, 164, 0)
 }
 .x4{
-    color: purple;
+    color: rgb(168, 5, 168);
 }
 .x5{
-    color: brown;
+    color: rgb(149, 19, 19);
+}
+.hint {
+    background-color: #d3e0ea;
 }
 /* .leves-btns{
     display: flex;
