@@ -7,6 +7,9 @@ body {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 }
+body.dark-mode{
+background-color: #4f3636;
+}
 
 h1 {
     color: darkblue;
@@ -43,7 +46,7 @@ tr {
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    padding: 15px;
+    padding: 25px;
 }
 .x1{
     color: rgb(198, 14, 14);
@@ -60,9 +63,9 @@ tr {
 .x5{
     color: rgb(149, 19, 19);
 }
-.hint {
+/* .hints {
     background-color: #d3e0ea;
-}
+} */
 /* .leves-btns{
     display: flex;
     justify-content: center;
